@@ -1,0 +1,13 @@
+{% if not metadata.volume %}
+<p>This article is from <a href="/search.php?query=collection%3Ajstor_{{ metadata.journalabbrv }}%20AND%20volume%3A{{ metadata.volume }}">{{ metadata.journaltitle }}</a>.</p>
+{% elif '[untitled]' in metadata.title %}
+<p>This article is from <a href="/search.php?query=collection%3Ajstor_{{ metadata.journalabbrv }}%20AND%20volume%3A{{ metadata.volume }}">{{ metadata.journaltitle }}, Volume {{ metadata.volume }}</a>.</p> 
+{% else %}
+<p>"{{ metadata.title }}" is an article from <a href="/search.php?query=collection%3Ajstor_{{ metadata.journalabbrv }}%20AND%20volume%3A{{ metadata.volume }}">{{ metadata.journaltitle }}, Volume {{ metadata.volume }}</a>.</p> 
+{% endif %}
+<p>
+View more articles from <a href="/search.php?query=collection%3Ajstor_{{ metadata.journalabbrv }}">{{ metadata.journaltitle }}</a>.<br />
+View <a href="http://www.jstor.org/stable/10.2307/{{ metadata.identifier.split('-')[-1] }}">this article on JSTOR</a>.<br />
+View <a href="/download/{{ metadata.identifier }}/10.2307_{{ metadata.identifier.split('-')[-1] }}.xml">this article's JSTOR metadata</a>.<br />
+</p>
+<p>You may also retrieve all of this items metadata in JSON at the following URL: <a href="https://archive.org/metadata/{{ metadata.identifier }}">https://archive.org/metadata/{{ metadata.identifier }}</p>
